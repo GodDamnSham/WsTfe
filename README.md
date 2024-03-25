@@ -1,16 +1,22 @@
 # Wordspace for TFE
 this file contains commands to run models.
+after running the commands open the link of Gradio and select multiple pictures. 
+add Prompt in the text place and click sumbit. 
 
-## run miniGpt on Google Colab
-
+## run miniGpt on Google Colab 
+### use the format (number_Image_imagename)
+#### example 1_Image_testimage.png
 %cd /Path/MiniGPT-4
 !pip install -r requirments.txt
 !python myimp.py
 
-## run miniGpt locally
+## run miniGpt locally 
+### use the format (number_Image_imagename)
+#### example 1_Image_testimage.png
 cd /Path/MiniGPT-4
 pip install -r requirments.txt
 python myimp.py
+
 
 ## run InstructBlip on Google Colab
 
