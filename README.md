@@ -24,7 +24,7 @@ add Prompt in the text place and click sumbit.
 ##### !pip install -r requirments.txt
 ##### !python instructBlip.py 
 
-### run InstructBlip locally
+## run InstructBlip locally
 ##### cd /Path/InstructBlipImplementation
 ##### pip install -r requirments.txt
 ##### python instructBlip.py 
@@ -34,7 +34,7 @@ add Prompt in the text place and click sumbit.
 ##### !pip install -r requirements.txt
 ##### !python app.py
 
-### run UForm-Gen locally
+## run UForm-Gen locally
 ##### cd /Path/ugen-image-captioning-hf
 ##### pip install -r requirements.txt
 ##### python app.py
