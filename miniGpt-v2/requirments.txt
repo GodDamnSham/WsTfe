@@ -1,0 +1,8 @@
+salesforce-lavis
+bitsandbytes
+accelerate
+transformers==4.30.0
+peft==0.2.0
+huggingface_hub
+gradio
+gradio-client
