@@ -24,11 +24,11 @@ pip install -r requirments.txt
 python instructBlip.py 
 
 ## run UForm-Gen on Google Colab
-%cd /Path/ugen-image-captioning
+%cd /Path/ugen-image-captioning-hf
 !pip install -r requirements.txt
 !python app.py
 
 ### run UForm-Gen locally
-cd /Path/ugen-image-captioning
+cd /Path/ugen-image-captioning-hf
 pip install -r requirements.txt
 python app.py
