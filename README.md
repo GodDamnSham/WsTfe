@@ -6,14 +6,14 @@ add Prompt in the text place and click sumbit.
 ## run miniGpt on Google Colab 
 ### use the format (number_Image_imagename)
 #### example 1_Image_testimage.png
-##### %cd /Path/MiniGPT-4
+##### %cd /Path/miniGpt-v2
 ##### !pip install -r requirments.txt
 ##### !python myimp.py
 
 ## run miniGpt locally 
 ### use the format (number_Image_imagename)
 #### example 1_Image_testimage.png
-##### cd /Path/MiniGPT-4
+##### cd /Path/miniGpt-v2
 ##### pip install -r requirments.txt
 ##### python myimp.py
 
