@@ -53,7 +53,7 @@ def plot_similarity_matrix(queries, results, sentences):
     y_labels = [f"Query {i+1}" for i in range(len(queries))]
     
     plt.figure(figsize=(10, 6))
-    sns.heatmap(results, annot=False, fmt=".2f", xticklabels=x_labels, yticklabels=y_labels, cmap="hot", cbar=False)
+    sns.heatmap(results, annot=False, fmt=".2f", xticklabels=x_labels, yticklabels=y_labels, cmap="hot", cbar=True)
     plt.xlabel("Sentences", fontsize=10)  
     plt.ylabel("Queries", fontsize=10)    
     plt.title("Similarity Matrix")
