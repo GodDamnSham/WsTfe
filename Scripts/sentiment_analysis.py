@@ -41,7 +41,7 @@ for sentence in sentences:
         segment_scores.append(result['score'])
     sentence_score = sum(segment_scores) / len(segment_scores)
     scores.append(sentence_score)
-palette = sns.color_palette("coolwarm", len(sentences))  
+palette = sns.color_palette("Set2", len(sentences))  
 
 # Plotting
 plt.figure(figsize=(8, 6))
