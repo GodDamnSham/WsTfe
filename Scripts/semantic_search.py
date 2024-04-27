@@ -1,8 +1,10 @@
+import re
 from sentence_transformers import SentenceTransformer, util
 import matplotlib.pyplot as plt
 import torch
 from scipy.stats import spearmanr
 import seaborn as sns
+import csv
 
 model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
 
@@ -46,6 +48,8 @@ def perform_semantic_search(queries, sentence_embeddings, sentences):
         scores = util.cos_sim(query_embedding, sentence_embeddings)[0].tolist()
         results.append(scores)
     return results
+
+    
 
 # Function to plot similarity matrix
 def plot_similarity_matrix(queries, results, sentences):

@@ -1,7 +1,3 @@
-from transformers import pipeline
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 sentences = [
     "'The image features a black woman, standing proudly and smiling, in front of an urban scene. She is wearing a sleeveless sports top that reads The People's Journey to Overcoming Running Block. This text emphasizes the significance of personal growth and progress, highlighting the challenges runners encounter while pushing themselves towards their goals. In the background, there are several people engaged in various activities, with some running, while others seem to be interacting with the surrounding environment. A bicycle can also be seen among the diverse urban scene, adding a touch of adventure and movement to the image.",
     "A person is shown in the image, wearing a helmet and climbing gear, standing on top of a snow-covered mountain. They appear to be holding their skis high in the air with great enthusiasm, celebrating their achievement on the mountain.",
@@ -29,58 +25,10 @@ sentences = [
      "The image captures two men hiking uphill through a mountainous terrain, carrying backpacks as they go. Their focus is on the trail ahead, and each man carries an orange flag attached to their hiking stick. They appear to be making their way across rocky ground, as evidenced by the scattered boulders in the scene. The men's outfits feature short-sleeved shirts and long shorts or tights for their hike. One of the individuals carries a handbag, while the other has a large backpack over their shoulders. Both hikers appear to have experienced some challenges, as they hold onto each other as they make their way along the path.",
      "A scenic white skier is standing on top of a snowy mountain slope, with an untouched ski trail stretching out in front of them. The sun is shining brightly overhead, casting a warm glow across the mountain landscape.In the distance, multiple snow-covered mountains can be seen, creating a dramatic and serene atmosphere. A mountain ridge with a few trees adds some height and depth to the scene. This image captures the essence of winter sports and the natural beauty of the mountains."
 ]
-sentiment_analyzer = pipeline(model="finiteautomata/bertweet-base-sentiment-analysis")
 
-scores = []
-
-for sentence in sentences:
-    segments = [sentence[i:i+128] for i in range(0, len(sentence), 128)]
-    segment_scores = []
-    for segment in segments:
-        result = sentiment_analyzer(segment)[0]
-        segment_scores.append(result['score'])
-    sentence_score = sum(segment_scores) / len(segment_scores)
-    scores.append(sentence_score)
-palette = sns.color_palette("Set2", len(sentences))  
-
-# Plotting
-plt.figure(figsize=(8, 6))
-for i, (sentence, score) in enumerate(zip(sentences, scores), 1):
-    plt.scatter(f"Sentence_{i}", score, color=palette[i-1]) 
-    print(sentence)
-    print(score)
-
-plt.xlabel('Sentences', fontsize=12)
-plt.ylabel('Confidence Score', fontsize=12)
-plt.title('Sentiment Analysis Results', fontsize=14)
-plt.xticks(rotation=45, ha='right', fontsize=9)
-plt.grid(True)
-plt.tight_layout()
-plt.show()
-
-sentiment_categories = {
-    'positive': [],
-    'neutral': [],
-    'negative': [],
-}
-
-for sentence, score in zip(sentences, scores):
-    if score >= 0.5:
-        sentiment_categories['positive'].append(score)
-    elif score < 0.5 and score > 0.35:
-        sentiment_categories['neutral'].append(score)
-    else:
-        sentiment_categories['negative'].append(score)
-
-# Plotting sentiment distribution
-plt.figure(figsize=(8, 6))
-for category, scores_list in sentiment_categories.items():
-    plt.hist(scores_list, bins=10, alpha=0.5, label=category)
-
-plt.xlabel('Sentiment Score', fontsize=12)
-plt.ylabel('Frequency', fontsize=12)
-plt.title('Sentiment Distribution', fontsize=14)
-plt.legend()
-plt.grid(True)
-plt.tight_layout()
-plt.show()
+queries = [
+    "people are doing sports", 
+    "there are many challenges on the way", 
+    "it is a motivation",
+    "outdoor sport are good for health" , 
+    "we can also play indoor"]
