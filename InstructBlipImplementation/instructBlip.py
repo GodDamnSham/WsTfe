@@ -20,7 +20,6 @@ def gradio_ask_multiple_images(images, user_message,temperature_input):
     output=""
     csvdata = []
     for image in images:
-#url = "https://raw.githubusercontent.com/salesforce/LAVIS/main/docs/_static/Confusing-Pictures.jpg"
         image = Image.open(image).convert("RGB")
 
 # prepare image and prompt for the model
@@ -39,7 +38,6 @@ def gradio_ask_multiple_images(images, user_message,temperature_input):
                 #length_penalty=1.0,
                 temperature=temperature_input,
                 )
-        number = re.search(r'/(\d+)_Image', image).group(1)
         generated_text = processor.batch_decode(outputs, skip_special_tokens=True)[0].strip()
         output += f"image:{image} , output:{generated_text}\n"
         print(generated_text)

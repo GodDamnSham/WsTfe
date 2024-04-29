@@ -550,7 +550,7 @@ def gradio_stream_answer(chatbot, chat_state, img_list, temperature):
     chat_state.messages = '</s>'
     return chatbot, chat_state
 
-# for getting the answer from chatbot @Malik
+#for getting the answer from chatbot after processing the answer @Malik
 def gradio_stream_answer_new(chatbot, chat_state, img_list, temperature):
     if len(img_list) > 0:
         if not isinstance(img_list[0], torch.Tensor):
