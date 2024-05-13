@@ -2,7 +2,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tabulate import tabulate
 from keybert import KeyBERT
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+import nltk
+import ssl
 
+ssl._create_default_https_context = ssl._create_unverified_context
+nltk.data.path.append("/Users/malik/Library/Python/3.10/bin")
+
+nltk.download('punkt', download_dir="/Users/malik/Library/Python/3.10/bin")
+nltk.download('wordnet', download_dir="/Users/malik/Library/Python/3.10/bin")
+print(nltk.data.path)
+#nltk.download('punkt')
+#nltk.download('wordnet')
 # Sentences
 sentences = [
     "'The image features a black woman, standing proudly and smiling, in front of an urban scene. She is wearing a sleeveless sports top that reads The People's Journey to Overcoming Running Block. This text emphasizes the significance of personal growth and progress, highlighting the challenges runners encounter while pushing themselves towards their goals. In the background, there are several people engaged in various activities, with some running, while others seem to be interacting with the surrounding environment. A bicycle can also be seen among the diverse urban scene, adding a touch of adventure and movement to the image.",
@@ -32,25 +44,35 @@ sentences = [
      "A scenic white skier is standing on top of a snowy mountain slope, with an untouched ski trail stretching out in front of them. The sun is shining brightly overhead, casting a warm glow across the mountain landscape.In the distance, multiple snow-covered mountains can be seen, creating a dramatic and serene atmosphere. A mountain ridge with a few trees adds some height and depth to the scene. This image captures the essence of winter sports and the natural beauty of the mountains."
 ]
 
-# Keywords to check for
-List = []
 # Initialize KeyBERT
 kw_extractor = KeyBERT()
-for sentence in sentences:
-    keywords = kw_extractor.extract_keywords(sentence, keyphrase_ngram_range=(1, 1),top_n=1,stop_words='english')
-    for key in keywords:
-     List.append(key[0])
-     print(key)
-     
-print(len(List))
-keyword_count = {}
-for k in List:
-    if k not in keyword_count:
-        keyword_count[k] = 1
-    else:
-        keyword_count[k] += 1
 
+# Tokenization and Lemmatization
+lemmatizer = WordNetLemmatizer()
+keywords = []
+for sentence in sentences:
+    tokens = word_tokenize(sentence.lower())  # Tokenization
+    lemmas = [lemmatizer.lemmatize(token) for token in tokens]  # Lemmatization
+    keywords.extend(lemmas)
+
+# Get unique keywords
+unique_keywords = set(keywords)
+List=[]
+# Extract keywords using KeyBERT
+keyword_count = {}
+for keyword in unique_keywords:
+    keywords = kw_extractor.extract_keywords(keyword, keyphrase_ngram_range=(1, 1), top_n=1, stop_words='english')
+    print(keywords)
+    List.append(keywords)
+    for key in keywords:
+        if key[0] not in keyword_count:
+            keyword_count[key[0]] = 1
+        else:
+            keyword_count[key[0]] += 1
+
+for l in List:
+    print(l)
+print(len(List))
+# Display keyword frequency
 table = [[keyword, freq] for keyword, freq in keyword_count.items()]
 print(tabulate(table, headers=['Keyword', 'Frequency']))
-
-
