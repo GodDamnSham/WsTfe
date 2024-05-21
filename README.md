@@ -1,42 +1,70 @@
 # Wordspace for TFE
-this file contains commands to run models.
-after running the commands open the link of Gradio and select multiple pictures. 
-add Prompt in the text place and click sumbit. 
+
+This repository contains updated models, scripts, and the sentences we used for sentiment analysis, keyword analysis, and semantic search.
+
+## Models
+
+In this section, the commands to run the models are mentioned. After running the commands, open the Gradio link that appears, select multiple pictures, add a prompt in the text box, and click **Submit**.
+
+> **Note:** In case of any updates to Python libraries, the requirements file needs to be updated accordingly.
+
+    ```bash
+    # Update the requirements file
+    pip freeze > requirements.txt
+    ```
+
+## Run miniGpt on Google Colab
+
+- **Use the format:** (number_Image_imagename)
+    - **Example:** `1_Image_testimage.png`
+    
+    ```bash
+    %cd /Path/miniGpt-v2
+    !pip install -r requirements.txt
+    !python myimp.py
+    ```
+
+## Run miniGpt Locally
+
+- **Use the format:** (number_Image_imagename)
+    - **Example:** `1_Image_testimage.png`
+
+    ```bash
+    cd /Path/miniGpt-v2
+    pip install -r requirements.txt
+    python myimp.py
+    ```
+
+## Run InstructBlip on Google Colab
+
+    ```bash
+    %cd /Path/InstructBlipImplementation
+    !pip install -r requirements.txt
+    !python instructBlip.py
+    ```
+
+## Run InstructBlip Locally
+
+    ```bash
+    cd /Path/InstructBlipImplementation
+    pip install -r requirements.txt
+    python instructBlip.py
+    ```
+
+## Run UForm-Gen on Google Colab
+
+    ```bash
+    %cd /Path/ugen-image-captioning-hf
+    !pip install -r requirements.txt
+    !python app.py
+    ```
+
+## Run UForm-Gen Locally
+
+    ```bash
+    cd /Path/ugen-image-captioning-hf
+    pip install -r requirements.txt
+    python app.py
+    ```
 
 
-
-## run miniGpt on Google Colab 
-### use the format (number_Image_imagename)
-#### example 1_Image_testimage.png
-##### %cd /Path/miniGpt-v2
-##### !pip install -r requirments.txt
-##### !python myimp.py
-
-## run miniGpt locally 
-### use the format (number_Image_imagename)
-#### example 1_Image_testimage.png
-##### cd /Path/miniGpt-v2
-##### pip install -r requirments.txt
-##### python myimp.py
-
-
-## run InstructBlip on Google Colab
-
-##### %cd /Path/InstructBlipImplementation
-##### !pip install -r requirments.txt
-##### !python instructBlip.py 
-
-## run InstructBlip locally
-##### cd /Path/InstructBlipImplementation
-##### pip install -r requirments.txt
-##### python instructBlip.py 
-
-## run UForm-Gen on Google Colab
-##### %cd /Path/ugen-image-captioning-hf
-##### !pip install -r requirements.txt
-##### !python app.py
-
-## run UForm-Gen locally
-##### cd /Path/ugen-image-captioning-hf
-##### pip install -r requirements.txt
-##### python app.py
