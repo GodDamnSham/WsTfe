@@ -2,6 +2,11 @@
 
 This repository contains updated models, scripts, and the sentences we used for sentiment analysis, keyword analysis, and semantic search.
 
+## Scripts
+
+to run the scripts open the file in VS code run it on the mentioned python env. 
+
+
 ## Models
 
 In this section, the commands to run the models are mentioned. After running the commands, open the Gradio link that appears, select multiple pictures, add a prompt in the text box, and click **Submit**.
