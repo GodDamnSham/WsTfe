@@ -2,6 +2,10 @@
 
 This repository contains updated models, scripts, and the sentences we used for sentiment analysis, keyword analysis, and semantic search.
 
+## Sentences for sentiment analysis, keyword analysis, and semantic search
+
+File SentencesAndQuries contain the test Sentences and queries.
+
 ## Scripts
 
 to run the scripts open the file in VS code run it on the mentioned python env. 
